@@ -1,0 +1,12 @@
+{{define "content"}}
+<div class="container mt-3">
+<h2>あなたがこれまでに翻訳した言葉は</h2>
+{{ range .History}}
+<table class="table table-hover">
+    <tr>
+        <td>{{ . }}</td>
+    </tr>
+</table>
+{{end}}
+</div>
+{{end}}

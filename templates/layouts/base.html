@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>honyac-konjac</title>
+        <!-- BootstrapのCSS読み込み -->
+        <link href="/bootstrap-4/css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery読み込み -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- BootstrapのJS読み込み -->
+        <script src="/bootstrap-4/js/bootstrap.min.js"></script>
+        <!-- faviconの読み込み -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#feeeec">
+        {{ if .jsmind}}
+        <link type="text/css" rel="stylesheet" href="/jsmind/style/jsmind.css" />
+        <link type="text/css" rel="stylesheet" href="/jsmind/style/style.css" />
+        <script type="text/javascript" src="/jsmind/js/jsmind.js"></script>
+        {{ end }}
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">honyac konjac</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="ナビゲーションの切替">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+            <ul class="navbar-nav">
+                {{if .SessionInfo.IsSessionAlive}}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">ホーム <span class="sr-only">(現位置)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/my">{{.SessionInfo.Name}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">ログアウト</a>
+                </li>
+                {{else}}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">ホーム <span class="sr-only">(現位置)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/signup">会員登録（準備中）</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/login">ログイン（準備中）</a>
+                </li>
+                {{end}}
+            </ul>
+        </div>
+    </nav>
+        {{ template "content" .}}
+</body>
+</html>
