@@ -15,7 +15,7 @@ import (
 	"github.com/gin-gonic/gin"
 	translatepb "google.golang.org/genproto/googleapis/cloud/translate/v3"
 
-	"github.com/tuckKome/konjac/db"
+	"github.com/tuckKome/konjac-v1/db"
 )
 
 type sessionInfo struct {
@@ -76,10 +76,7 @@ func getEnv(key, fallback string) string {
 
 //Index show index page
 func Index(c *gin.Context) {
-	info := getSessionInfo(c)
-	c.HTML(200, "index.html", gin.H{
-		"sessionInfo": info,
-	})
+	c.HTML(200, "index.html", gin.H{})
 }
 
 //GetTranslation translate word using google cloud translate.
