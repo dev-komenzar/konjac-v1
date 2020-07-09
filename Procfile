@@ -1,1 +1,1 @@
-web: konjac
+web: konjac-v1
