@@ -32,6 +32,7 @@ func main() {
 	router.StaticFile("/android-chrome-256x256.png", "./resources/android-chrome-256x256.png")
 
 	router.LoadHTMLGlob("./react/*.html")
+	router.Static("/static", "./react/static")
 
 	// router.HTMLRender = render.LoadTemplates("./templates") // 事前にテンプレートをロード multitemplateで
 	// store := cookie.NewStore([]byte("secret"))
